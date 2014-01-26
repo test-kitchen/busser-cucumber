@@ -1,4 +1,7 @@
-[![Gem Version](https://badge.fury.io/rb/busser-cucumber.png)](http://badge.fury.io/rb/busser-cucumber) [![Dependency Status](https://gemnasium.com/RoboticCheese/busser-cucumber.png)](https://gemnasium.com/RoboticCheese/busser-cucumber) [![Build Status](https://travis-ci.org/RoboticCheese/busser-cucumber.png?branch=master)](https://travis-ci.org/RoboticCheese/busser-cucumber) [![Code Climate](https://codeclimate.com/github/RoboticCheese/busser-cucumber.png)](https://codeclimate.com/github/RoboticCheese/busser-cucumber)
+[![Gem Version](https://badge.fury.io/rb/busser-cucumber.png)](http://badge.fury.io/rb/busser-cucumber)
+[![Build Status](https://travis-ci.org/test-kitchen/busser-cucumber.png?branch=master)](https://travis-ci.org/test-kitchen/busser-cucumber)
+[![Code Climate](https://codeclimate.com/github/test-kitchen/busser-cucumber.png)](https://codeclimate.com/github/test-kitchen/busser-cucumber)
+[![Dependency Status](https://gemnasium.com/test-kitchen/busser-cucumber.png)](https://gemnasium.com/test-kitchen/busser-cucumber)
 
 # Busser::Cucumber
 

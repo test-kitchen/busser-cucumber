@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['j@p4nt5.com']
   spec.description   = %q{A Busser plugin for Cucumber}
   spec.summary       = spec.description
-  spec.homepage      = 'https://github.com/RoboticCheese/busser-cucumber'
+  spec.homepage      = 'https://github.com/test-kitchen/busser-cucumber'
   spec.license       = 'Apache 2.0'
 
   spec.files         = `git ls-files`.split($/)
