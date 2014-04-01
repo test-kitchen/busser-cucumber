@@ -14,13 +14,28 @@ See the [Busser](https://github.com/fnichol/busser) and
 
 ## Usage
 
-Place test files in [COOKBOOK]/test/integration/[SUITE]/cucumber/
+Place test files in `[COOKBOOK]/test/integration/[SUITE]/cucumber/`
 
     cookbook
         -- test
             -- integration
                 -- default
                     -- cucumber
+
+When Test Kitchen runs Busser, it will automatically install this plugin on
+your server under test.
+
+In some cases, your tests may need an additional Gem installed. One possible
+means of accomplishing this is to install the extra Gem(s) with something like
+the following at the top level of your `env.rb` file:
+
+    begin
+      require 'rest_client'
+    rescue LoadError
+      require 'rubygems/dependency_installer'
+      Gem::DependencyInstaller.new.install('rest_client')
+      require 'rest_client'
+    end
 
 ## Contributing
 
