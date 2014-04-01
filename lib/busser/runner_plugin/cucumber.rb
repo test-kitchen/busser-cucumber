@@ -19,21 +19,25 @@
 
 require 'busser/runner_plugin'
 
-# A Busser runner for Cucumber
-#
-# @author Jonathan Hartman <j@p4nt5.com>
-#
-class Busser::RunnerPlugin::Cucumber < Busser::RunnerPlugin::Base
-  postinstall do
-    install_gem 'cucumber'
-  end
+module Busser
+  module RunnerPlugin
+    # A Busser runner for Cucumber
+    #
+    # @author Jonathan Hartman <j@p4nt5.com>
+    #
+    class Cucumber < Busser::RunnerPlugin::Base
+      postinstall do
+        install_gem 'cucumber'
+      end
 
-  def test
-    runner = File.expand_path(File.join(File.dirname(__FILE__),
-                                        '..',
-                                        'cucumber',
-                                        'runner.rb'))
-    run_ruby_script!("#{runner} #{suite_path('cucumber').to_s}")
+      def test
+        runner = File.expand_path(File.join(File.dirname(__FILE__),
+                                            '..',
+                                            'cucumber',
+                                            'runner.rb'))
+        run_ruby_script!("#{runner} #{suite_path('cucumber')}")
+      end
+    end
   end
 end
 
