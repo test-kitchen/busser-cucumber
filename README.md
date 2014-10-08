@@ -36,7 +36,14 @@ your server under test.
 
 In some cases, your tests may require some additional setup. This plugin will
 run any `Gemfile` or `setup-recipe.rb` Chef recipe included in the test file
-directory.
+directory. For example, if you need the `aruba` and `rest-client` gems for some
+tests, place a file in `[COOKBOOK]/test/integration/[SUITE]/cucumber/Gemfile`:
+
+    source 'https://rubygems.org'
+
+    gem 'cucumber'
+    gem 'aruba'
+    gem 'rest_client'
 
 Contributing
 ------------
