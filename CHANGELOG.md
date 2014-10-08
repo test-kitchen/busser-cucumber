@@ -1,6 +1,9 @@
 Busser-Cucumber Gem CHANGELOG
 =============================
 
+v?.?.? (????-??-??)
+-------------------
+
 v0.2.0 (2014-10-08)
 -------------------
 - Add support for included `Gemfile`s
