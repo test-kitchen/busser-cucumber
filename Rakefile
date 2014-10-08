@@ -1,4 +1,6 @@
-require 'bundler/gem_tasks'
+# Encoding: UTF-8
+
+require 'bundler/setup'
 require 'cane/rake_task'
 require 'rubocop/rake_task'
 require 'cucumber/rake/task'
@@ -11,10 +13,8 @@ task :loc do
   Kernel.system 'countloc -r .'
 end
 
-Rubocop::RakeTask.new
+RuboCop::RakeTask.new
 
 Cucumber::Rake::Task.new
 
 task 'default' => [:cane, :loc, :rubocop, :cucumber]
-
-# vim: ai et ts=2 sts=2 sw=2 ft=ruby

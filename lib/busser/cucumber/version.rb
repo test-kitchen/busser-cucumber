@@ -1,8 +1,8 @@
-# -*- encoding: utf-8 -*-
+# Encoding: UTF-8
 #
 # Author:: Jonathan Hartman (<j@p4nt5.com>)
 #
-# Copyright (C) 2013, Jonathan Hartman
+# Copyright (C) 2013-2014, Jonathan Hartman
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,10 +20,7 @@ module Busser
   # A Busser runner for Cucumber
   #
   # @author Jonathan Hartman <j@p4nt5.com>
-  #
   module Cucumber
-    VERSION = '0.1.0'
+    VERSION = '0.1.1.dev'
   end
 end
-
-# vim: ai et ts=2 sts=2 sw=2 ft=ruby

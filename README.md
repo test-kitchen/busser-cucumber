@@ -1,18 +1,27 @@
-[![Gem Version](https://badge.fury.io/rb/busser-cucumber.png)](http://badge.fury.io/rb/busser-cucumber)
-[![Build Status](https://travis-ci.org/test-kitchen/busser-cucumber.png?branch=master)](https://travis-ci.org/test-kitchen/busser-cucumber)
-[![Code Climate](https://codeclimate.com/github/test-kitchen/busser-cucumber.png)](https://codeclimate.com/github/test-kitchen/busser-cucumber)
-[![Dependency Status](https://gemnasium.com/test-kitchen/busser-cucumber.png)](https://gemnasium.com/test-kitchen/busser-cucumber)
+Busser-Cucumber
+===============
 
-# Busser::Cucumber
+[![Gem Version](https://badge.fury.io/rb/busser-cucumber.png)][fury]
+[![Build Status](https://img.shields.io/travis/test-kitchen/busser-cucumber.svg)][travis]
+[![Code Climate](https://img.shields.io/codeclimate/github/test-kitchen/busser-cucumber.svg)][codeclimate]
+[![Dependency Status](https://img.shields.io/gemnasium/test-kitchen/busser-cucumber.svg)][gemnasium]
+
+[fury]: http://badge.fury.io/rb/busser-cucumber
+[travis]: https://travis-ci.org/test-kitchen/busser-cucumber
+[codeclimate]: https://codeclimate.com/github/test-kitchen/busser-cucumber
+[gemnasium]: https://gemnasium.com/test-kitchen/busser-cucumber
+
 
 A Busser runner plugin for Cucumber.
 
-## Installation
+Installation
+------------
 
-See the [Busser](https://github.com/fnichol/busser) and
-[Test Kitchen](https://github.com/opscode/test-kitchen) pages for more details.
+See the [Busser](https://github.com/test-kitchen/busser) and
+[Test Kitchen](https://github.com/test-kitchen/test-kitchen) pages for more details.
 
-## Usage
+Usage
+-----
 
 Place test files in `[COOKBOOK]/test/integration/[SUITE]/cucumber/`
 
@@ -37,7 +46,8 @@ the following at the top level of your `env.rb` file:
       require 'rest_client'
     end
 
-## Contributing
+Contributing
+------------
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
@@ -45,14 +55,15 @@ the following at the top level of your `env.rb` file:
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-## Authors
+Authors
+-------
 
 - Author:: Jonathan Hartman (<j@p4nt5.com>)
 
 Based mostly on work by [Adam Jacob](https://github.com/adamhjk) on
-[busser-rspec](https://github.com/adamhjk/busser-rspec), in turn based on work
-done by [Daisuke Higuchi](https://github.com/cl-lab-k) on
-[busser-serverspec](https://github.com/cl-lab-k/busser-serverspec).
+[busser-rspec](https://github.com/test-kitchen/busser-rspec), in turn based on
+work done by [Daisuke Higuchi](https://github.com/cl-lab-k) on
+[busser-serverspec](https://github.com/test-kitchen/busser-serverspec).
 
 ## License
 
