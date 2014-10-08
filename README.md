@@ -34,26 +34,19 @@ Place test files in `[COOKBOOK]/test/integration/[SUITE]/cucumber/`
 When Test Kitchen runs Busser, it will automatically install this plugin on
 your server under test.
 
-In some cases, your tests may need an additional Gem installed. One possible
-means of accomplishing this is to install the extra Gem(s) with something like
-the following at the top level of your `env.rb` file:
-
-    begin
-      require 'rest_client'
-    rescue LoadError
-      require 'rubygems/dependency_installer'
-      Gem::DependencyInstaller.new.install('rest_client')
-      require 'rest_client'
-    end
+In some cases, your tests may require some additional setup. This plugin will
+run any `Gemfile` or `setup-recipe.rb` Chef recipe included in the test file
+directory.
 
 Contributing
 ------------
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+3. Ensure any changes are tested and all tests pass (`rake`)
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create new Pull Request
 
 Authors
 -------
@@ -65,6 +58,7 @@ Based mostly on work by [Adam Jacob](https://github.com/adamhjk) on
 work done by [Daisuke Higuchi](https://github.com/cl-lab-k) on
 [busser-serverspec](https://github.com/test-kitchen/busser-serverspec).
 
-## License
+License
+-------
 
 Apache 2.0 (see [LICENSE](license.txt)).
