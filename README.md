@@ -41,7 +41,6 @@ tests, place a file in `[COOKBOOK]/test/integration/[SUITE]/cucumber/Gemfile`:
 
     source 'https://rubygems.org'
 
-    gem 'cucumber'
     gem 'aruba'
     gem 'rest_client'
 
