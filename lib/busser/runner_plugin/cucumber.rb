@@ -51,13 +51,16 @@ module Busser
       end
 
       def bundle_install
-        return nil unless File.exist?(File.join(cuke_path, 'Gemfile'))
+        gemfile_path = File.join(cuke_path, 'Gemfile')
+        return nil unless File.exist?(gemfile_path)
         # Bundle install local completes quickly if the gems are already found
-        # locally. It fails if it needs to talk to the internet. The || below
-        # is the fallback to the Internet-enabled version. It's a speed
-        # optimization.
-        run("PATH=#{ENV['PATH']}:#{Gem.bindir}; " \
-            'bundle install --local || bundle install')
+        # locally it fails if it needs to talk to the internet. The || below is
+        # the fallback to the internet-enabled version. It's a speed optimization.
+        banner('Bundle Installing..')
+        ENV['PATH'] = [ENV['PATH'], Gem.bindir, Config::CONFIG['bindir']].join(File::PATH_SEPARATOR)
+        bundle_install = "#{File.join(Config::CONFIG['bindir'], 'ruby')} " +
+          "#{File.join(Gem.bindir, 'bundle')} install --gemfile #{gemfile_path}"
+        run("#{bundle_install} --local || #{bundle_install}")
       end
 
       def runner
