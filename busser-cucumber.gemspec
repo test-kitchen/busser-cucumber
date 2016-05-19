@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = []
-  spec.test_files    = spec.files.grep(/^(test|spec|features)\//)
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)\/})
   spec.require_paths = %w(lib)
 
   spec.add_dependency 'busser'

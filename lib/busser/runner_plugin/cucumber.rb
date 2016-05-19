@@ -44,7 +44,7 @@ module Busser
       def chef_apply
         return nil unless File.exist?(setup_file)
         unless File.exist?('/opt/chef/bin/chef-apply')
-          fail("You have a chef setup file at #{setup_file}, but " \
+          raise("You have a chef setup file at #{setup_file}, but " \
                '/opt/chef/bin/chef-apply does not if exist')
         end
         run("/opt/chef/bin/chef-apply #{setup_file}")
@@ -58,8 +58,9 @@ module Busser
         # the fallback to the internet-enabled version. It's a speed
         # optimization.
         banner('Bundle Installing..')
-        ENV['PATH'] = [ENV['PATH'], Gem.bindir,
-                      Config::CONFIG['bindir']].join(File::PATH_SEPARATOR)
+        ENV['PATH'] = [
+          ENV['PATH'], Gem.bindir, Config::CONFIG['bindir']
+        ].join(File::PATH_SEPARATOR)
         bundle_install = "#{File.join(Config::CONFIG['bindir'], 'ruby')} " \
           "#{File.join(Gem.bindir, 'bundle')} install --gemfile #{gemfile_path}"
         run("#{bundle_install} --local || #{bundle_install}")
