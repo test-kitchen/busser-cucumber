@@ -4,17 +4,15 @@ Busser-Cucumber
 [![Gem Version](https://badge.fury.io/rb/busser-cucumber.png)][fury]
 [![Build Status](https://img.shields.io/travis/test-kitchen/busser-cucumber.svg)][travis]
 [![Code Climate](https://img.shields.io/codeclimate/github/test-kitchen/busser-cucumber.svg)][codeclimate]
-[![Dependency Status](https://img.shields.io/gemnasium/test-kitchen/busser-cucumber.svg)][gemnasium]
 
 [fury]: http://badge.fury.io/rb/busser-cucumber
 [travis]: https://travis-ci.org/test-kitchen/busser-cucumber
 [codeclimate]: https://codeclimate.com/github/test-kitchen/busser-cucumber
-[gemnasium]: https://gemnasium.com/test-kitchen/busser-cucumber
 
 
 A Busser runner plugin for Cucumber.
 
-### Status
+## Status
 
 This software project is no longer under active development as it has no active maintainers. The software may continue to work for some or all use cases, but issues filed in GitHub will most likely not be triaged. If a new maintainer is interested in working on this project please come chat with us in #test-kitchen on Chef Community Slack.
 
