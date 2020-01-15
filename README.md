@@ -3,12 +3,9 @@ Busser-Cucumber
 
 [![Gem Version](https://badge.fury.io/rb/busser-cucumber.png)][fury]
 [![Build Status](https://img.shields.io/travis/test-kitchen/busser-cucumber.svg)][travis]
-[![Code Climate](https://img.shields.io/codeclimate/github/test-kitchen/busser-cucumber.svg)][codeclimate]
 
 [fury]: http://badge.fury.io/rb/busser-cucumber
 [travis]: https://travis-ci.org/test-kitchen/busser-cucumber
-[codeclimate]: https://codeclimate.com/github/test-kitchen/busser-cucumber
-
 
 A Busser runner plugin for Cucumber.
 
