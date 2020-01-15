@@ -2,6 +2,7 @@
 
 require "bundler/setup"
 require "cane/rake_task"
+require "chefstyle"
 require "rubocop/rake_task"
 require "cucumber/rake/task"
 
