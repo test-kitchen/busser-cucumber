@@ -17,7 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require 'busser/runner_plugin'
+require "busser/runner_plugin"
 
 module Busser
   module RunnerPlugin
@@ -27,8 +27,8 @@ module Busser
     #
     class Cucumber < Busser::RunnerPlugin::Base
       postinstall do
-        install_gem('cucumber')
-        install_gem('bundler')
+        install_gem("cucumber")
+        install_gem("bundler")
       end
 
       def test
@@ -43,42 +43,44 @@ module Busser
 
       def chef_apply
         return nil unless File.exist?(setup_file)
-        unless File.exist?('/opt/chef/bin/chef-apply')
+
+        unless File.exist?("/opt/chef/bin/chef-apply")
           raise("You have a chef setup file at #{setup_file}, but " \
-               '/opt/chef/bin/chef-apply does not if exist')
+               "/opt/chef/bin/chef-apply does not if exist")
         end
         run("/opt/chef/bin/chef-apply #{setup_file}")
       end
 
       def bundle_install
-        gemfile_path = File.join(cuke_path, 'Gemfile')
+        gemfile_path = File.join(cuke_path, "Gemfile")
         return nil unless File.exist?(gemfile_path)
+
         # Bundle install local completes quickly if the gems are already found
         # locally it fails if it needs to talk to the internet. The || below is
         # the fallback to the internet-enabled version. It's a speed
         # optimization.
-        banner('Bundle Installing..')
-        ENV['PATH'] = [
-          ENV['PATH'], Gem.bindir, Config::CONFIG['bindir']
+        banner("Bundle Installing..")
+        ENV["PATH"] = [
+          ENV["PATH"], Gem.bindir, Config::CONFIG["bindir"]
         ].join(File::PATH_SEPARATOR)
-        bundle_install = "#{File.join(Config::CONFIG['bindir'], 'ruby')} " \
-          "#{File.join(Gem.bindir, 'bundle')} install --gemfile #{gemfile_path}"
+        bundle_install = "#{File.join(Config::CONFIG["bindir"], "ruby")} " \
+          "#{File.join(Gem.bindir, "bundle")} install --gemfile #{gemfile_path}"
         run("#{bundle_install} --local || #{bundle_install}")
       end
 
       def runner
         File.expand_path(File.join(File.dirname(__FILE__),
-                                   '..',
-                                   'cucumber',
-                                   'runner.rb'))
+          "..",
+          "cucumber",
+          "runner.rb"))
       end
 
       def setup_file
-        File.join(cuke_path, 'setup-recipe.rb')
+        File.join(cuke_path, "setup-recipe.rb")
       end
 
       def cuke_path
-        suite_path('cucumber').to_s
+        suite_path("cucumber").to_s
       end
     end
   end

@@ -21,6 +21,6 @@ module Busser
   #
   # @author Jonathan Hartman <j@p4nt5.com>
   module Cucumber
-    VERSION = '0.2.1.dev'.freeze
+    VERSION = "0.2.1.dev".freeze
   end
 end
