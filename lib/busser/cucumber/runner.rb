@@ -17,7 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require 'bundler/setup'
-require 'cucumber/cli/main'
+require "bundler/setup"
+require "cucumber/cli/main"
 
 exit Cucumber::Cli::Main.new(ARGV.dup).execute!
