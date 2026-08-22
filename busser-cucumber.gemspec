@@ -25,7 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "cane"
-  spec.add_development_dependency "chefstyle"
   spec.add_development_dependency "countloc"
   spec.add_development_dependency "aruba", "0.6.1"
   spec.add_development_dependency "cucumber", "1.3.18"
