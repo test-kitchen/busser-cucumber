@@ -23,9 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "busser"
 
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "cane"
-  spec.add_development_dependency "countloc"
-  spec.add_development_dependency "aruba", "0.6.1"
-  spec.add_development_dependency "cucumber", "1.3.18"
+  spec.add_development_dependency "aruba", ">= 2.0"
+  spec.add_development_dependency "cucumber", ">= 9.0"
   spec.add_development_dependency "rspec"
 end

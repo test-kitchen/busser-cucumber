@@ -1,8 +1,8 @@
 require "aruba/cucumber"
 require "busser/cucumber"
 
-Before do
-  @aruba_timeout_seconds = 20
+Aruba.configure do |config|
+  config.exit_timeout = 20
 end
 
 After do |s|
