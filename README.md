@@ -1,11 +1,8 @@
-Busser-Cucumber
-===============
+# Busser-Cucumber
 
-[![Gem Version](https://badge.fury.io/rb/busser-cucumber.png)][fury]
-[![Build Status](https://img.shields.io/travis/test-kitchen/busser-cucumber.svg)][travis]
+[![Gem Version](https://badge.fury.io/rb/busser-cucumber.svg)][fury]
 
 [fury]: http://badge.fury.io/rb/busser-cucumber
-[travis]: https://travis-ci.org/test-kitchen/busser-cucumber
 
 A Busser runner plugin for Cucumber.
 
@@ -13,14 +10,12 @@ A Busser runner plugin for Cucumber.
 
 This software project is no longer under active development as it has no active maintainers. The software may continue to work for some or all use cases, but issues filed in GitHub will most likely not be triaged. If a new maintainer is interested in working on this project please come chat with us in #test-kitchen on Chef Community Slack.
 
-Installation
-------------
+## Installation
 
 See the [Busser](https://github.com/test-kitchen/busser) and
 [Test Kitchen](https://github.com/test-kitchen/test-kitchen) pages for more details.
 
-Usage
------
+## Usage
 
 Place test files in `[COOKBOOK]/test/integration/[SUITE]/cucumber/`
 
@@ -45,8 +40,7 @@ addition to Cucumber itself, place a file in
     gem 'aruba'
     gem 'rest_client'
 
-Contributing
-------------
+## Contributing
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
@@ -55,8 +49,7 @@ Contributing
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create new Pull Request
 
-Authors
--------
+## Authors
 
 - Author:: Jonathan Hartman (<j@p4nt5.com>)
 
@@ -65,7 +58,6 @@ Based mostly on work by [Adam Jacob](https://github.com/adamhjk) on
 work done by [Daisuke Higuchi](https://github.com/cl-lab-k) on
 [busser-serverspec](https://github.com/test-kitchen/busser-serverspec).
 
-License
--------
+## License
 
 Apache 2.0 (see [LICENSE](license.txt)).
