@@ -1,5 +1,3 @@
-# Encoding: UTF-8
-
 require "bundler/setup"
 require "cookstyle/chefstyle"
 require "rubocop/rake_task"
