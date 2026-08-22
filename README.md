@@ -19,11 +19,13 @@ See the [Busser](https://github.com/test-kitchen/busser) and
 
 Place test files in `[COOKBOOK]/test/integration/[SUITE]/cucumber/`
 
-    cookbook
-        -- test
-            -- integration
-                -- default
-                    -- cucumber
+```text
+cookbook
+    -- test
+        -- integration
+            -- default
+                -- cucumber
+```
 
 When Test Kitchen runs Busser, it will automatically install this plugin on
 your server under test.
@@ -34,11 +36,13 @@ directory. For example, if you need the `aruba` and `rest-client` gems in
 addition to Cucumber itself, place a file in
 `[COOKBOOK]/test/integration/[SUITE]/cucumber/Gemfile`:
 
-    source 'https://rubygems.org'
+```ruby
+source 'https://rubygems.org'
 
-    gem 'cucumber'
-    gem 'aruba'
-    gem 'rest_client'
+gem 'cucumber'
+gem 'aruba'
+gem 'rest_client'
+```
 
 ## Contributing
 
