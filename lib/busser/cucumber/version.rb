@@ -19,7 +19,9 @@ module Busser
   # A Busser runner for Cucumber
   #
   # @author Jonathan Hartman <j@p4nt5.com>
+  # Namespace for the Cucumber Busser runner plugin.
   module Cucumber
+    # Version string for the Cucumber Busser runner plugin
     VERSION = "0.2.0".freeze
   end
 end
