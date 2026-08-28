@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# Encoding: UTF-8
 #
 # Author:: Jonathan Hartman (<j@p4nt5.com>)
 #
@@ -27,7 +26,7 @@ module Busser
     #
     class Cucumber < Busser::RunnerPlugin::Base
       postinstall do
-        install_gem("cucumber")
+        install_gem("cucumber", ">= 11.1")
         install_gem("bundler")
       end
 
