@@ -19,12 +19,6 @@
 require "bundler/setup"
 require "cucumber/cli/main"
 
-# Cucumber only auto-loads step definitions from its default features path: with
-# no --require, Configuration#require_dirs ignores the paths given on the command
-# line entirely. Busser hands it a suite directory, which is never named
-# "features", so without naming that directory here every step in the suite comes
-# back undefined.
-paths = ARGV.dup
-requires = paths.select { |path| File.directory?(path) }.flat_map { |dir| ["--require", dir] }
+require_relative "cli_args"
 
-exit Cucumber::Cli::Main.new(requires + paths).execute!
+exit ::Cucumber::Cli::Main.new(Busser::Cucumber::CliArgs.build(ARGV)).execute!
