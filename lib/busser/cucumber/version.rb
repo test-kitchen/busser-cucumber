@@ -22,6 +22,6 @@ module Busser
   # Namespace for the Cucumber Busser runner plugin.
   module Cucumber
     # Version string for the Cucumber Busser runner plugin
-    VERSION = "0.2.0".freeze
+    VERSION = "0.3.0".freeze
   end
 end
