@@ -26,7 +26,7 @@ module Busser
     #
     class Cucumber < Busser::RunnerPlugin::Base
       postinstall do
-        install_gem("cucumber")
+        install_gem("cucumber", ">= 11.1")
         install_gem("bundler")
       end
 

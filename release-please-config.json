@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "8f2b31a8107d284fc6a5615839034d62817ce932",
+  "packages": {
+    ".": {
+      "package-name": "busser-cucumber",
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "ruby",
+      "include-component-in-tag": false,
+      "version-file": "lib/busser/cucumber/version.rb"
+    }
+  }
+}
