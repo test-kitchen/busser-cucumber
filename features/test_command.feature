@@ -84,3 +84,30 @@ Feature: Test command
     3 steps (1 failed, 2 passed)
     """
     And the exit status should not be 0
+
+  Scenario: A suite that brings its own Gemfile
+    Given a file in suite "cucumber" named "Gemfile" with:
+    """
+    source "https://rubygems.org"
+
+    gem "cucumber"
+    """
+    And a file in suite "cucumber" named "something.feature" with:
+    """
+    Feature: Something
+      Scenario: Do something
+        Given 2
+    """
+    And a file in suite "cucumber" named "step_definitions/steps.rb" with:
+    """
+    Given(/^([0-9]+)$/) do |num|
+      @num = num.to_i
+    end
+    """
+    When I run `busser test cucumber`
+    Then the output should contain "Bundle Installing.."
+    And the output should contain:
+    """
+    1 scenario (1 passed)
+    """
+    And the exit status should be 0

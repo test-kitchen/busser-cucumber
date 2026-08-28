@@ -1,67 +1,93 @@
-# Busser-Cucumber
+# busser-cucumber
 
-[![Gem Version](https://badge.fury.io/rb/busser-cucumber.svg)][fury]
+[![Gem Version](https://badge.fury.io/rb/busser-cucumber.svg)](https://badge.fury.io/rb/busser-cucumber)
 
-[fury]: http://badge.fury.io/rb/busser-cucumber
+A [Busser](https://github.com/test-kitchen/busser) runner plugin that runs
+[Cucumber](https://cucumber.io) features as integration tests.
 
-A Busser runner plugin for Cucumber.
+Busser installs Cucumber on the machine under test during postinstall, then runs
+the suite's `cucumber` directory against it. Because the features run on the
+machine itself rather than over SSH, they can assert on local files, services
+and commands directly.
 
 ## Status
 
-This software project is no longer under active development as it has no active maintainers. The software may continue to work for some or all use cases, but issues filed in GitHub will most likely not be triaged. If a new maintainer is interested in working on this project please come chat with us in #test-kitchen on Chef Community Slack.
+This software project is no longer under active development as it has no active
+maintainers. The software may continue to work for some or all use cases, but
+issues filed in GitHub will most likely not be triaged. If a new maintainer is
+interested in working on this project please come chat with us in #test-kitchen
+on Chef Community Slack.
+
+## Requirements
+
+Ruby 3.2 or newer, and busser 0.9.0 or newer.
 
 ## Installation
 
-See the [Busser](https://github.com/test-kitchen/busser) and
-[Test Kitchen](https://github.com/test-kitchen/test-kitchen) pages for more details.
+Busser installs the plugin for you when Test Kitchen runs the suite, so there is
+usually nothing to do. To install it by hand:
+
+```bash
+busser plugin install busser-cucumber
+```
 
 ## Usage
 
-Place test files in `[COOKBOOK]/test/integration/[SUITE]/cucumber/`
+Put your features in the `cucumber` directory of a suite, with step definitions
+beside them:
 
 ```text
-cookbook
-    -- test
-        -- integration
-            -- default
-                -- cucumber
+test
+`-- integration
+    `-- default              # suite name
+        `-- cucumber
+            |-- Gemfile              # optional
+            |-- setup-recipe.rb      # optional
+            |-- something.feature
+            `-- step_definitions
+                `-- steps.rb
 ```
 
-When Test Kitchen runs Busser, it will automatically install this plugin on
-your server under test.
+The suite directory is passed to Cucumber as both the features path and the
+`--require` path, so every `.rb` file under it is loaded as glue. Step
+definitions can sit in `step_definitions/` or anywhere else in the tree.
 
-In some cases, your tests may require some additional setup. This plugin will
-run any `Gemfile` or `setup-recipe.rb` Chef recipe included in the test file
-directory. For example, if you need the `aruba` and `rest-client` gems in
-addition to Cucumber itself, place a file in
-`[COOKBOOK]/test/integration/[SUITE]/cucumber/Gemfile`:
+### Extra gems
+
+If a `Gemfile` is present in the suite directory, it is `bundle install`ed
+before the run. Use it when your steps need more than Cucumber itself:
 
 ```ruby
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'cucumber'
-gem 'aruba'
-gem 'rest_client'
+gem "cucumber"
+gem "aruba"
+gem "rest-client"
 ```
+
+The install is attempted with `--local` first and falls back to the network, so
+gems already present on the machine do not cost a download.
+
+### Chef setup
+
+If a `setup-recipe.rb` is present in the suite directory, it is applied with
+`chef-apply` before the features run, which is a convenient way to put the
+machine into a known state. This requires `/opt/chef/bin/chef-apply` to exist on
+the machine; the run fails with a clear error if the file is there and Chef is
+not.
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Ensure any changes are tested and all tests pass (`rake`)
-4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Push to the branch (`git push origin my-new-feature`)
-6. Create new Pull Request
-
-## Authors
-
-- Author:: Jonathan Hartman (<j@p4nt5.com>)
-
-Based mostly on work by [Adam Jacob](https://github.com/adamhjk) on
-[busser-rspec](https://github.com/test-kitchen/busser-rspec), in turn based on
-work done by [Daisuke Higuchi](https://github.com/cl-lab-k) on
-[busser-serverspec](https://github.com/test-kitchen/busser-serverspec).
+Bug reports and pull requests are welcome. See
+[CONTRIBUTING.md](CONTRIBUTING.md) for how to set up the project, run the test
+suite, and format your commits.
 
 ## License
 
-Apache 2.0 (see [LICENSE](license.txt)).
+Apache License 2.0. See [LICENSE.txt](LICENSE.txt).
+
+Originally created by [Jonathan Hartman](https://github.com/RoboticCheese),
+based on work by [Adam Jacob](https://github.com/adamhjk) on
+[busser-rspec](https://github.com/test-kitchen/busser-rspec), in turn based on
+[Daisuke Higuchi](https://github.com/cl-lab-k)'s
+[busser-serverspec](https://github.com/test-kitchen/busser-serverspec).

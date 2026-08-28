@@ -60,9 +60,9 @@ module Busser
         # optimization.
         banner("Bundle Installing..")
         ENV["PATH"] = [
-          ENV["PATH"], Gem.bindir, Config::CONFIG["bindir"]
+          ENV["PATH"], Gem.bindir, RbConfig::CONFIG["bindir"]
         ].join(File::PATH_SEPARATOR)
-        bundle_install = "#{File.join(Config::CONFIG["bindir"], "ruby")} " \
+        bundle_install = "#{File.join(RbConfig::CONFIG["bindir"], "ruby")} " \
           "#{File.join(Gem.bindir, "bundle")} install --gemfile #{gemfile_path}"
         run("#{bundle_install} --local || #{bundle_install}")
       end
